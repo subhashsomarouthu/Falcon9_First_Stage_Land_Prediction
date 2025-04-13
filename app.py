@@ -5,15 +5,15 @@ from dash import html, dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
 
-# Read the SpaceX launch data into pandas dataframe
+# SpaceX launch data into pandas dataframe
 spacex_df = pd.read_csv("spacex_launch_dash.csv")
 max_payload = spacex_df['Payload Mass (kg)'].max()
 min_payload = spacex_df['Payload Mass (kg)'].min()
 
-# Create a dash application
+#  dash application
 app = dash.Dash(__name__)
 
-# Create an app layout
+# app layout
 app.layout = html.Div(children=[
     html.H1('SpaceX Launch Records Dashboard',
             style={'textAlign': 'center', 'color': '#503D36',
@@ -89,6 +89,6 @@ def update_scatter_plot(selected_site, payload_range):
     )
     return fig
 
-# Run the app
+
 if __name__ == '__main__':
     app.run(debug=True, port=8060)
